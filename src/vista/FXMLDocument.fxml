@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.web.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.effect.*?>
@@ -9,9 +10,9 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="451.0" prefWidth="474.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladorinterfaz.FXMLDocumentController">
+<AnchorPane id="AnchorPane" prefHeight="451.0" prefWidth="801.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladorinterfaz.FXMLDocumentController">
     <children>
-        <Button id="botonlanzar" fx:id="button" layoutX="199.0" layoutY="336.0" onAction="#handleButtonAction" text="Lanzar">
+        <Button id="botonlanzar" fx:id="lanzar" layoutX="199.0" layoutY="336.0" onAction="#lanzar" text="Lanzar">
          <font>
             <Font name="System Bold" size="17.0" />
          </font>
@@ -31,5 +32,6 @@
             <Image url="@../imagenes/1.png" />
          </image>
       </ImageView>
+      <WebView fx:id="tabla" layoutX="489.0" layoutY="28.0" prefHeight="401.0" prefWidth="295.0" />
     </children>
 </AnchorPane>
