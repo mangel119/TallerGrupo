@@ -23,6 +23,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
+import javax.swing.JOptionPane;
 import pilas.Pila;
 import pilas.Tools;
 import sun.net.www.content.image.png;
@@ -135,10 +136,8 @@ public class FXMLDocumentController implements Initializable {
     }
     @FXML
     private void ultimoLanzamiento(ActionEvent event){
-    
-//    Integer h = pilad.peek();
-//    String ultimo = h.toString();
-       
+        Lanzamiento ultimo = pilad.primero();
+       JOptionPane.showMessageDialog(null, ultimo.toString());
     }
     
 

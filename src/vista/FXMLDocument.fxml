@@ -39,7 +39,7 @@
             <items>
               <MenuItem fx:id="lanzar" mnemonicParsing="false" onAction="#lanzar" text="Lanzar dados" />
                   <MenuItem fx:id="detener" mnemonicParsing="false" onAction="#detener" text="Detener" />
-                  <MenuItem fx:id="ultimoLanzamiento1" mnemonicParsing="false" text="Ultimo lanzamiento" />
+                  <MenuItem fx:id="ultimoLanzamiento" mnemonicParsing="false" onAction="#ultimoLanzamiento" text="Ultimo lanzamiento" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Edit">
