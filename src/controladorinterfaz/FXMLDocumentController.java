@@ -6,13 +6,19 @@
 package controladorinterfaz;
 
 import datos.Lanzamiento;
+import java.awt.Toolkit;
 import java.net.URL;
 import java.util.Random;
 import java.util.ResourceBundle;
+import java.util.Timer;
+import java.util.TimerTask;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuBar;
+import javafx.scene.control.MenuItem;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.web.WebEngine;
@@ -20,6 +26,7 @@ import javafx.scene.web.WebView;
 import pilas.Pila;
 import pilas.Tools;
 import sun.net.www.content.image.png;
+import pilas.OperacionesPilas;
 
 /**
  *
@@ -35,20 +42,39 @@ public class FXMLDocumentController implements Initializable {
     private ImageView dadodos;
     @FXML
     private WebView tabla;
+    @FXML
     private WebEngine engine;
+    @FXML
+    private Label ultimoLanza;
+    @FXML
+    private MenuBar menuBar;
+    @FXML
+    private MenuItem lanzar;
+    public Timer timer;
+    
     int dado2;
     int dado1;
     Pila<Lanzamiento> pilad;
+    Pila<Lanzamiento> ultValor;
+    
+    Timer timer1;
+    Toolkit toolkit;
 
     @FXML
     private void lanzar(ActionEvent event) {
+        
+        timer = new Timer();
+        timer.scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
+                Platform.runLater(() -> {
         Random rnd = new Random();
 
-        dado1 = ((int) (rnd.nextDouble() * 6));
-        System.out.println("numero 1" + dado1);
+        dado1 = ((int) (rnd.nextDouble() * 6 + 1));
+//        System.out.println("numero 1" + dado1);
 
-        dado2 = ((int) (rnd.nextDouble() * 6));
-        System.out.println("numero 2" + dado2);
+        dado2 = ((int) (rnd.nextDouble() * 6 + 1));
+//        System.out.println("numero 2" + dado2);
         if (dado1 == 1) {
             Image imagen = new Image("/imagenes/1.png");
             dadouno.setImage(imagen);
@@ -63,6 +89,10 @@ public class FXMLDocumentController implements Initializable {
             dadouno.setImage(imagen);
         } else if (dado1 == 5) {
             Image imagen = new Image("/imagenes/5.png");
+            dadouno.setImage(imagen);
+        }
+        else if (dado1 == 6) {
+            Image imagen = new Image("/imagenes/6.png");
             dadouno.setImage(imagen);
         }
 
@@ -82,12 +112,35 @@ public class FXMLDocumentController implements Initializable {
             Image imagen = new Image("/imagenes/5.png");
             dadodos.setImage(imagen);
         }
+        else if (dado2 == 6) {
+            Image imagen = new Image("/imagenes/6.png");
+            dadodos.setImage(imagen);
+        }
+        
 
         pilad.apilar(new Lanzamiento(dado1, dado2));
 
         engine.loadContent(Tools.convertirPilaAHtml(pilad));
+        
+                });
+                }
+                }, 3000, 4000);
+                        
 
     }
+    @FXML
+    private void detener(ActionEvent event){
+    timer.cancel();
+    
+    }
+    @FXML
+    private void ultimoLanzamiento(ActionEvent event){
+    
+//    Integer h = pilad.peek();
+//    String ultimo = h.toString();
+       
+    }
+    
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
