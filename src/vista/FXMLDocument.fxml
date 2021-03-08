@@ -35,7 +35,7 @@
       <WebView fx:id="tabla" blendMode="MULTIPLY" layoutX="230.0" layoutY="71.0" prefHeight="485.0" prefWidth="306.0" />
       <MenuBar fx:id="menuBar" prefHeight="25.0" prefWidth="816.0">
         <menus>
-          <Menu mnemonicParsing="false" text="File">
+          <Menu mnemonicParsing="false" text="Pila">
             <items>
               <MenuItem fx:id="lanzar" mnemonicParsing="false" onAction="#lanzar" text="Lanzar dados" />
                   <MenuItem fx:id="detener" mnemonicParsing="false" onAction="#detener" text="Detener" />
@@ -44,14 +44,10 @@
                   <MenuItem fx:id="paresrepetidos" mnemonicParsing="false" onAction="#paresrepetidos" text="Pares Repetidos" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Edit">
+          <Menu mnemonicParsing="false" text="Estadistica">
             <items>
-              <MenuItem mnemonicParsing="false" text="Delete" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Help">
-            <items>
-              <MenuItem mnemonicParsing="false" text="About" />
+              <MenuItem mnemonicParsing="false" text="Par Promedio" />
+                  <MenuItem fx:id="probabilidad" mnemonicParsing="false" onAction="#probabilidad" text="Probabilidad" />
             </items>
           </Menu>
         </menus>
