@@ -12,27 +12,27 @@
 
 <AnchorPane id="AnchorPane" prefHeight="451.0" prefWidth="801.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladorinterfaz.FXMLDocumentController">
     <children>
-        <Label id="labeltitulo" fx:id="label" layoutX="22.0" layoutY="28.0" minHeight="16" minWidth="69" text="Simulador de Lanzamiento de Dados">
+      <ImageView fitHeight="544.0" fitWidth="1004.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../imagenes/fichas-casino-dados-mesa-verde_23-2147881287.jpg" />
+         </image>
+      </ImageView>
+        <Label id="labeltitulo" fx:id="label" layoutX="22.0" layoutY="28.0" minHeight="16" minWidth="69" text="Simulador de Lanzamiento de Dados" textFill="WHITE">
          <font>
-            <Font name="System Bold" size="25.0" />
+            <Font name="System Bold" size="29.0" />
          </font>
       </Label>
-      <ImageView fx:id="dadouno" fitHeight="150.0" fitWidth="200.0" layoutX="33.0" layoutY="79.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="dadouno" fitHeight="173.0" fitWidth="198.0" layoutX="22.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../imagenes/1.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="dadodos" fitHeight="150.0" fitWidth="200.0" layoutX="199.0" layoutY="79.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="dadodos" fitHeight="173.0" fitWidth="211.0" layoutX="22.0" layoutY="333.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../imagenes/1.png" />
          </image>
       </ImageView>
-      <WebView fx:id="tabla" layoutX="489.0" layoutY="28.0" prefHeight="401.0" prefWidth="295.0" />
-      <Label id="labeltitulo" fx:id="ultLanzamiento" layoutX="22.0" layoutY="346.0" minHeight="16" minWidth="69" text="Ultimo lanzamiento">
-         <font>
-            <Font name="System Bold" size="16.0" />
-         </font>
-      </Label>
+      <WebView fx:id="tabla" blendMode="MULTIPLY" layoutX="230.0" layoutY="71.0" prefHeight="485.0" prefWidth="306.0" />
       <MenuBar fx:id="menuBar" prefHeight="25.0" prefWidth="816.0">
         <menus>
           <Menu mnemonicParsing="false" text="File">
@@ -40,6 +40,8 @@
               <MenuItem fx:id="lanzar" mnemonicParsing="false" onAction="#lanzar" text="Lanzar dados" />
                   <MenuItem fx:id="detener" mnemonicParsing="false" onAction="#detener" text="Detener" />
                   <MenuItem fx:id="ultimoLanzamiento" mnemonicParsing="false" onAction="#ultimoLanzamiento" text="Ultimo lanzamiento" />
+                  <MenuItem fx:id="repetidos" mnemonicParsing="false" onAction="#repetidos" text="Repetidos" />
+                  <MenuItem fx:id="paresrepetidos" mnemonicParsing="false" onAction="#paresrepetidos" text="Pares Repetidos" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Edit">
@@ -54,6 +56,5 @@
           </Menu>
         </menus>
       </MenuBar>
-      <Label fx:id="ultimoLanza" layoutX="22.0" layoutY="371.0" prefHeight="38.0" prefWidth="234.0" />
     </children>
 </AnchorPane>
