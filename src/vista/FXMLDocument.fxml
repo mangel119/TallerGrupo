@@ -46,7 +46,7 @@
           </Menu>
           <Menu mnemonicParsing="false" text="Estadistica">
             <items>
-              <MenuItem mnemonicParsing="false" text="Par Promedio" />
+              <MenuItem fx:id="parpromedio" mnemonicParsing="false" onAction="#parpromedio" text="Par Promedio" />
                   <MenuItem fx:id="probabilidad" mnemonicParsing="false" onAction="#probabilidad" text="Probabilidad" />
             </items>
           </Menu>

@@ -12,6 +12,7 @@ package controladorinterfaz;
 import datos.Lanzamiento;
 import java.awt.Toolkit;
 import java.net.URL;
+import java.text.DecimalFormat;
 import java.util.Random;
 import java.util.ResourceBundle;
 import java.util.Timer;
@@ -292,8 +293,79 @@ public class FXMLDocumentController implements Initializable {
     
     @FXML
     private void probabilidad(ActionEvent event) {
+//        Lanzamiento probabilidad = pilad.Binomial();
+
         
-//        double prob = 
+    }
+     @FXML
+    private void parpromedio(ActionEvent event){
+    Object seleccion = JOptionPane.showInputDialog(
+                null,
+                "Seleccione un Par para obtener promedio",
+                "Selector de opciones",
+                JOptionPane.QUESTION_MESSAGE,
+                null, // null para icono defecto
+                new Object[]{"Par 1-1", "Par 2-2", "Par 3-3", "Par 4-4", "Par 5-5", "Par 6-6"},
+                "Par1-1");
+
+        Pila<Lanzamiento> parrepetidos = OperacionesPilas.duplicarPila(pilad);
+
+        double rep1 = 0;
+        double rep2 = 0;
+        double rep3 = 0;
+        double rep4 = 0;
+        double rep5 = 0;
+        double rep6 = 0;
+        double msg = 0;
+
+        while (!parrepetidos.estaVacia()) {
+            Lanzamiento pares = parrepetidos.desapilar();
+            int valordado1 = pares.getDado1();
+            int valordado2 = pares.getDado2();
+
+            if (valordado1 == 1 && valordado2 == 1) {
+                rep1++;
+            }
+            if (valordado1 == 2 && valordado2 == 2) {
+                rep2++;
+            }
+            if (valordado1 == 3 && valordado2 == 3) {
+                rep3++;
+            }
+            if (valordado1 == 4 && valordado2 == 4) {
+                rep4++;
+            }
+            if (valordado1 == 5 && valordado2 == 5) {
+                rep5++;
+            }
+            if (valordado1 == 6 && valordado2 == 6) {
+                rep6++;
+            }
+
+            if (seleccion == "Par 1-1") {
+                msg = rep1;
+            }
+            if (seleccion == "Par 2-2") {
+                msg = rep2;
+            }
+            if (seleccion == "Par 3-3") {
+                msg = rep3;
+            }
+            if (seleccion == "Par 4-4") {
+                msg = rep4;
+            }
+            if (seleccion == "Par 5-5") {
+                msg = rep5;
+            }
+            if (seleccion == "Par 6-6") {
+                msg = rep6;
+            }
+        }
+        double size = pilad.tamaño();
+        System.out.println(size);
+        double promedio = msg/size;
+        System.out.println(msg);
+        JOptionPane.showMessageDialog(null, "Promedio: " + promedio);
         
     }
 
