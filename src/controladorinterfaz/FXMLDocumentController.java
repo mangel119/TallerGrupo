@@ -1,12 +1,13 @@
 /**
-* Se encarga de establecer las acciones que deben realizar los elementos que forman la ventana.
-* @author juan_san.erazo@uao.edu.co Juan Pablo Sandoval Erazo 2195823
-* @author miguel.sanabria@uao.edu.co Miguel Angel Sanabria Rodriguez 2167228
-* 
-* 
-* @date 8 Marzo 2021
-* @version 1.0
-*/
+ * Se encarga de establecer las acciones que deben realizar los elementos que forman la ventana.
+ *
+ * @author juan_san.erazo@uao.edu.co Juan Pablo Sandoval Erazo 2195823
+ * @author miguel.sanabria@uao.edu.co Miguel Angel Sanabria Rodriguez 2167228
+ *@author john.quintero@uao.edu.co John Alejandro Quintero Suaza 2171945
+ *@author esteban.garrido@uao.edu.co  Esteban Garrido  2160721
+ * @date 8 Marzo 2021
+ * @version 1.0
+ */
 package controladorinterfaz;
 
 import datos.Lanzamiento;
@@ -290,16 +291,10 @@ public class FXMLDocumentController implements Initializable {
         }
         JOptionPane.showMessageDialog(null, "Repetido " + msg + " Veces");
     }
-    
-    @FXML
-    private void probabilidad(ActionEvent event) {
-//        Lanzamiento probabilidad = pilad.Binomial();
 
-        
-    }
-     @FXML
-    private void parpromedio(ActionEvent event){
-    Object seleccion = JOptionPane.showInputDialog(
+    @FXML
+    private void parpromedio(ActionEvent event) {
+        Object seleccion = JOptionPane.showInputDialog(
                 null,
                 "Seleccione un Par para obtener promedio",
                 "Selector de opciones",
@@ -362,11 +357,63 @@ public class FXMLDocumentController implements Initializable {
             }
         }
         double size = pilad.tamaño();
-        System.out.println(size);
-        double promedio = msg/size;
-        System.out.println(msg);
-        JOptionPane.showMessageDialog(null, "Promedio: " + promedio);
+        double promedio = msg / size;
+        JOptionPane.showMessageDialog(null, "Promedio: " + (Math.round(promedio * 10000.0) / 10000.0));
+
+    }
+
+    @FXML
+    private void probabilidad(ActionEvent event) {
+
+        Object seleccion = JOptionPane.showInputDialog(
+                null,
+                "Seleccione un valor para obtener su probabilidad en 6 tiradas",
+                "Selector de opciones",
+                JOptionPane.QUESTION_MESSAGE,
+                null, // null para icono defecto
+                new Object[]{"Valor 1", "Valor 2", "Valor 3", "Valor 4", "Valor 5", "Valor 6"},
+                "Valor 1");
+
+        int sel = 0;
         
+        if (seleccion == "Valor 1") {
+                sel = 1;
+            }
+            if (seleccion == "Valor 2") {
+                sel = 2;
+            }
+            if (seleccion == "Valor 3") {
+                sel = 3;
+            }
+            if (seleccion == "Valor 4") {
+                sel = 4;
+            }
+            if (seleccion == "Valor 5") {
+                sel = 5;
+            }
+            if (seleccion == "Valor 6") {
+                sel = 6;
+            }
+        
+        double factn = OperacionesPilas.factorial(6);
+
+        double factx = OperacionesPilas.factorial(1);
+
+        double factnx = OperacionesPilas.factorial(6 - 1);
+
+
+        double c = factn / (factx * factnx);
+
+
+        double p = Math.pow(0.167, 1); //0.167 = 1/6 = probabilidad de exito
+
+        double q = Math.pow(0.833, 5); //0.833 = 1 - 1/6 = probabilidad de fracaso, 5 = n - x = 6 - 1
+
+
+        double prob = c * p * q;
+
+        JOptionPane.showMessageDialog(null, "La probabilidad de sacar exactamente el número " + sel + " en 6 tiradas es de " + (Math.round(prob * 1000.0) / 1000.0));
+
     }
 
     @Override
